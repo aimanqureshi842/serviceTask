@@ -1,0 +1,15 @@
+<ul class="list-group" *ngIf=" reminderList.length>0 ;else noreminder">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let reminder of reminderList;trackBy:trackById">
+        <strong>{{reminder.reminderText}}</strong>
+        <div>
+            <button mat-stroked-button color="primary">Edit</button>
+            <button mat-stroked-button color="warn">Remove</button>
+
+        </div>
+    </li>
+</ul>
+<ng-template #noreminder>
+    <p class="alert alert-info" >
+       No reminder to do !
+    </p>
+</ng-template>

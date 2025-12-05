@@ -1,0 +1,16 @@
+<ul class="list-group" *ngIf="todosArr.length>0;else notodo">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todosArr ;trackBy:trackById">
+       <strong> {{todo.todoItem}}</strong>
+       <div>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+       </div>
+    </li>
+</ul>
+<ng-template #notodo>
+  <p class="alert alert-info">No todo added yet ,Add to let go !</p>
+</ng-template>

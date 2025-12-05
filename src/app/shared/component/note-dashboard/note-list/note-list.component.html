@@ -1,0 +1,13 @@
+<ul class="list-group" *ngIf="noteArr.length>0 ;else nonote">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let note of noteArr ;trackBy:trackById">
+        <strong>{{note.noteTitle}}</strong>
+        <div>
+            <button mat-raised-button color="success" class="mr-2">Edit</button>
+            <button mat-raised-button color="warn">Remove</button>
+
+        </div>
+    </li>
+</ul>
+<ng-template #nonote>
+<p class="alert alert-info">No note added yet !</p>
+</ng-template>
