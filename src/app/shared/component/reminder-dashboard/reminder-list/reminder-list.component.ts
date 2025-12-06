@@ -29,4 +29,7 @@ reminderList:Array<Ireminder>=[]
 trackById(index:number,reminder:Ireminder){
 return reminder.reminderId
 }
+removeReminder(reminderId:string){
+this._reminderService.removeReminder(reminderId)
+}
 }

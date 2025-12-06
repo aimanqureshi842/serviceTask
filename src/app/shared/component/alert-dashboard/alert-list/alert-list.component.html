@@ -1,9 +1,9 @@
 <ul class="list-group" *ngIf="alerArr.length>0;else noalert">
     <li class="list-group-item d-flex justify-content-between" *ngFor="let alert of alerArr ;trackBy:trackById">
-        <strong>{{alert.alertMessage}}</strong>
+        <strong>{{alert.alertMessage|titlecase}}</strong>
         <div>
-            <button mat-raised-button color="primary" class="mr-2">Edit</button>
-            <button mat-raised-button color="warn">Remove</button>
+            <button mat-raised-button color="primary" class="mr-2" (click)="editTodo(alert)">Edit</button>
+            <button mat-raised-button color="warn" (click)="removeAlertTodo(alert.alertId)">Remove</button>
 
         </div>
     </li>

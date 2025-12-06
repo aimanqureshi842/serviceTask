@@ -1,1 +1,18 @@
-<p>reminder-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <form #reminderForm="ngForm" (ngSubmit)="addReminder()">
+            <div class="form-group">
+                <label for="reminder">Reminder</label>
+                <input type="text" class="form-control" ngModel name="reminderText" required #reminderText="ngModel">
+                <strong class="text-danger" *ngIf="reminderText.touched && reminderText.hasError('required')">
+                 This field is mandatory 
+                </strong>
+            </div>
+            <button mat-stroked-button color="primary" type="submit" *ngIf="!isInEditMode;else inedit">Add Reminder</button>
+            <ng-template #inedit>
+                <button mat-stroked-button color="primary" type="button">Update Reminder</button>
+            </ng-template>
+
+        </form>
+    </div>
+</div>

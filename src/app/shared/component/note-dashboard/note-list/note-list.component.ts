@@ -29,5 +29,7 @@ noteArr:Array<Inote>=[]
   trackById(index:number,note:Inote){
 return note.noteId
   }
-
+removeNote(noteId:string){
+  this._noteService.removeNote(noteId)
+}
 }

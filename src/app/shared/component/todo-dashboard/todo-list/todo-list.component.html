@@ -1,11 +1,11 @@
 <ul class="list-group" *ngIf="todosArr.length>0;else notodo">
     <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todosArr ;trackBy:trackById">
-       <strong> {{todo.todoItem}}</strong>
+       <strong> {{todo.todoItem|titlecase}}</strong>
        <div>
-        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="primary">
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="primary" (click)="editTodo(todo)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="warn">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" color="warn" (click)="removeTodo(todo.todoId)">
         <mat-icon>delete</mat-icon>
       </button>
        </div>

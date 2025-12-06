@@ -29,4 +29,14 @@ export class ReminderService {
   fetchAllReminder():Observable<Ireminder[]>{
     return of(this.reminderList)
   }
+  addReminder(reminderObj:Ireminder){
+    this.reminderList.unshift(reminderObj)
+  }
+  removeReminder(id:string){
+    let getConfirm=confirm('Are you sure you want to remove this reminder ?');
+    if(getConfirm){
+      let getIndex=this.reminderList.findIndex(reminder=>reminder.reminderId===id);
+      this.reminderList.splice(getIndex,1)
+    }
+  }
 }

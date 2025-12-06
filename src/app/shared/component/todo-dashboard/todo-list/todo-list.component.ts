@@ -29,4 +29,12 @@ todosArr:Array<Itodo>=[]
 trackById(index:number,todo:Itodo){
 return todo.todoId
 }
+removeTodo(todoId:string){
+this._todoService.removeTodo(todoId)
+}
+
+editTodo(todo:Itodo){
+  //used subject as observer here 
+this._todoService.editObj$.next(todo)
+}
 }

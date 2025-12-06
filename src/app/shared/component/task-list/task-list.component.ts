@@ -22,12 +22,14 @@ this._taskService.fetchAllTaskList()
   },
 error:err=>{
   err='Something went wrong while fetching the data !'
-  this._snackBarService.openSnackBar('')
+  this._snackBarService.openSnackBar(err)
 }
 })
   }
   trackById(index:number,task:Itask){
     return task.taskId
   }
-
+removeTask(taskId:string){
+this._taskService.removeTask(taskId)
+}
 }

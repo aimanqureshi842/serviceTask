@@ -19,6 +19,7 @@ import { NoteFormComponent } from './shared/component/note-dashboard/note-form/n
 import { AlertDashboardComponent } from './shared/component/alert-dashboard/alert-dashboard.component';
 import { AlertListComponent } from './shared/component/alert-dashboard/alert-list/alert-list.component';
 import { AlertFormComponent } from './shared/component/alert-dashboard/alert-form/alert-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AlertFormComponent } from './shared/component/alert-dashboard/alert-for
   imports: [
     BrowserModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

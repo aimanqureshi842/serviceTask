@@ -1,1 +1,14 @@
-<p>task-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <form #taskForm="ngForm" (ngSubmit)="addTask()">
+            <div class="form-group">
+                <label for="task"> Todo Task</label>
+                <input type="text" class="form-control" ngModel name="taskTitle" #taskTitle="ngModel" required>
+            </div>
+            <button mat-raised-button color="primary" type="submit" *ngIf="!isInEditMode;inedit">Add Task</button>
+            <ng-template #inedit>
+                <button mat-raised-button color="primary" type="button">Update Task</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

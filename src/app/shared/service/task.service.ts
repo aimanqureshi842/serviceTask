@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Itask } from '../models/todos';
 import { Observable, of } from 'rxjs';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,22 @@ export class TaskService {
   }
 ];
 
+private _snackBar=inject(SnackbarService)
   constructor() { }
   fetchAllTaskList():Observable<Itask[]>{
     return of(this.taskList)
+  }
+  addTask(taskObj:Itask){
+this.taskList.unshift(taskObj);
+this._snackBar.openSnackBar('Task added successfully !')
+  }
+  removeTask(id:string){
+    let getConfirm=confirm('Are you sure you want to delete this task ?')
+    if(getConfirm){
+      let getIndex=this.taskList.findIndex(task=>task.taskId===id);
+      this.taskList.splice(getIndex,1);
+      this._snackBar.openSnackBar('Task removed successfully !')
+
+    }
   }
 }

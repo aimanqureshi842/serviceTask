@@ -29,4 +29,10 @@ alerArr:Array<Ialert>=[]
 trackById(index:number,alert:Ialert){
   return alert.alertId
 }
+removeAlertTodo(alertId:string){
+this._alertService.removeAlertTodo(alertId)
+}
+editTodo(alert:Ialert){
+this._alertService.editTodo$.next(alert)
+}
 }

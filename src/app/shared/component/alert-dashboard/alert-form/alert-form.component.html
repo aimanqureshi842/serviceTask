@@ -1,1 +1,18 @@
-<p>alert-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <form #alertForm="ngForm" (ngSubmit)="addalertTodo()">
+            <div class="form-group">
+                <label for="alert">Todo Alert</label>
+                <input type="text" class="form-control" ngModel name="alertMessage" #alertMessage="ngModel" required>
+                <strong *ngIf="alertMessage.touched && alertMessage.hasError('required')" class="text-danger">
+                    This field is mandatory
+                </strong>
+            </div>
+            <button mat-raised-button color="primary" *ngIf="!isInEditMode ;else inEdit" type="submit">Add Todo Alert</button>
+            <ng-template #inEdit>
+                <button mat-raised-button color="primary" type="button" (click)="updateAlert()">Update Todo Alert</button>
+            </ng-template>
+        </form>
+    
+    </div>
+</div>

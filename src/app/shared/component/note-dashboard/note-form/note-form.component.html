@@ -1,1 +1,17 @@
-<p>note-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <form #noteForm="ngForm" (ngSubmit)="addNote()">
+            <div class="form-group">
+                <label for="note">Note Task</label>
+                <input type="text" class="form-control" ngModel name="noteTitle" #noteTitle="ngModel" required>
+                <strong *ngIf=" noteTitle.touched && noteTitle.hasError('required')" class="text-danger">
+                    This field is mandatory
+                </strong>
+            </div>
+            <button mat-raised-button color="success" type="submit" *ngIf="!isInEditMode;else inedit">Add Note</button>
+            <ng-template #inedit>              
+                <button mat-raised-button color="success" type="button">Update Note</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

@@ -1,9 +1,9 @@
 <ul class="list-group" *ngIf="noteArr.length>0 ;else nonote">
     <li class="list-group-item d-flex justify-content-between" *ngFor="let note of noteArr ;trackBy:trackById">
-        <strong>{{note.noteTitle}}</strong>
+        <strong>{{note.noteTitle|titlecase}}</strong>
         <div>
             <button mat-raised-button color="success" class="mr-2">Edit</button>
-            <button mat-raised-button color="warn">Remove</button>
+            <button mat-raised-button color="warn" (click)="removeNote(note.noteId)">Remove</button>
 
         </div>
     </li>
