@@ -32,4 +32,8 @@ error:err=>{
 removeTask(taskId:string){
 this._taskService.removeTask(taskId)
 }
+
+editTask(task:Itask){
+this._taskService.editObj$.next(task)
+}
 }

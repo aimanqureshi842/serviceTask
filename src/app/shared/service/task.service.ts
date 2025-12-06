@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Itask } from '../models/todos';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { SnackbarService } from './snackbar.service';
 
 @Injectable({
@@ -28,6 +28,7 @@ export class TaskService {
 
 private _snackBar=inject(SnackbarService)
   constructor() { }
+  editObj$:Subject<Itask>=new Subject()
   fetchAllTaskList():Observable<Itask[]>{
     return of(this.taskList)
   }
@@ -43,5 +44,11 @@ this._snackBar.openSnackBar('Task added successfully !')
       this._snackBar.openSnackBar('Task removed successfully !')
 
     }
+  }
+
+  updatedTask(updatedTask:Itask){
+    let getIndex=this.taskList.findIndex(task=>task.taskId===updatedTask.taskId);
+    this.taskList[getIndex]=updatedTask
+    this._snackBar.openSnackBar('Task updated successfully !')
   }
 }

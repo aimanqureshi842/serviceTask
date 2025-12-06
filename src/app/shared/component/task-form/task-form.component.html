@@ -5,9 +5,9 @@
                 <label for="task"> Todo Task</label>
                 <input type="text" class="form-control" ngModel name="taskTitle" #taskTitle="ngModel" required>
             </div>
-            <button mat-raised-button color="primary" type="submit" *ngIf="!isInEditMode;inedit">Add Task</button>
+            <button mat-raised-button color="primary" type="submit" *ngIf="!isInEditMode; else inedit">Add Task</button>
             <ng-template #inedit>
-                <button mat-raised-button color="primary" type="button">Update Task</button>
+                <button mat-raised-button color="primary" type="button" (click)="updateTodo()">Update Task</button>
             </ng-template>
         </form>
     </div>
